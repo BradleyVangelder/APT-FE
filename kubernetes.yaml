@@ -18,7 +18,7 @@ spec:
     spec:                     # Spec for the containers that will be run in the Pods
       containers:
         - name: FE-service-server
-          image: bradleysan/FE-service
+          image: bradleysan/feservice
           imagePullPolicy: Always
           ports:
             - name: http
