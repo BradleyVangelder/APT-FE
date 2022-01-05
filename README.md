@@ -5,7 +5,12 @@
 export const API_URL = "http://localhost:{yourEdgeNodePort}"
 ```
 
-### 2. start the application
+### 2. install all required packages
+```Javascript
+npm i
+```
+
+### 3. start the application
 ```Javascript
 npm start
 ```
