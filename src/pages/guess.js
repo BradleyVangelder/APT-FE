@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { API_URL } from "../app/constants";
+import Select from "../components/select";
 import useGetBeforeGuess from "../hooks/useGetBeforeGuess"
 import useGetBooks from "../hooks/useGetBooks";
 
@@ -39,11 +40,7 @@ export default function Guess() {
                 !isFetched
                 ? <p></p>
                 : <div>
-                    <select onChange={(e) => setTitle(e.target.value)} value={title} className="border border-inherit border-zinc-900 px-5 py-1 text-sm mr-2">
-                        {
-                            books.data.map(book => <option value={book.title}>{book.title}</option>)
-                        }
-                    </select>
+                    <Select title={title} setTitle={setTitle} books={books}/>
                     <button onClick={() => handleSubmit(data.id, title)} className="bg-black px-5 py-1 text-white text-sm font-medium">Check</button>
                 </div>
             }

@@ -14,17 +14,6 @@ function App() {
     </nav>
   );
 
-  const Main = () => (
-    <div>
-      <Routes>
-        <Route exact path={"/"} element={<Books />}/>
-        <Route path={"/quotes/:isbn"} element={<Quotes />}/>
-        <Route path={"/random"} element={<Random />} />
-        <Route path={"/guess"} element={<Guess />} />
-      </Routes>
-    </div>
-  );
-
   return (
     <div className="container w-screen bg-white h-screen">
       <BrowserRouter>
@@ -34,5 +23,16 @@ function App() {
     </div>
   );
 }
+
+export const Main = () => (
+  <div>
+    <Routes>
+      <Route exact path={"/"} element={<Books />}/>
+      <Route path={"/quotes/:isbn"} element={<Quotes />}/>
+      <Route path={"/random"} element={<Random />} />
+      <Route path={"/guess"} element={<Guess />} />
+    </Routes>
+  </div>
+);
 
 export default App;

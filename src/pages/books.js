@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import Book from "../components/book";
 import useGetBooks from "../hooks/useGetBooks"
 
 export default function Books() {
@@ -13,13 +13,7 @@ export default function Books() {
                 {
                     !isFetched
                     ? <p>loading</p>
-                    : data.map(book => {
-                        return (
-                            <div className="px-3 py-3 bg-orange-300 mb-4 text-sm font-medium">
-                                <Link to={"/quotes/" + book.isbn}>{book.title}</Link>
-                            </div>
-                        )
-                    }) 
+                    : data.map(book => <Book isbn={book.isbn} title={book.title} />) 
                 }
             </div>
         </div>

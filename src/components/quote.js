@@ -2,8 +2,8 @@ import { useState } from "react"
 import useDeleteQuote from "../hooks/useDeleteQuote"
 import useUpdateQuote from "../hooks/useUpdateQuote"
 
-export default function Quote({q, quoteId}) {
-    const [edit, setEdit] = useState(false)
+export default function Quote({q, quoteId, isbn, test}) {
+    const [edit, setEdit] = useState(test)
     const [input, setInput] = useState(q)
 
     const quote = useUpdateQuote()
@@ -19,7 +19,7 @@ export default function Quote({q, quoteId}) {
     }
 
     return (
-        <div>
+        <div data-testid={isbn}>
             {
                 !edit
                 ?<div className="flex mb-10 items-center">
@@ -28,7 +28,7 @@ export default function Quote({q, quoteId}) {
                     <button onClick={() => onDelete()} className="bg-red-500 px-5 rounded-full py-1 text-white text-sm font-medium">Delete</button>
                 </div>
                 :<div className="flex mb-6">
-                    <input className="border border-inherit w-2/6 border-zinc-900 px-5 py-1 text-sm mr-2" value={input} onChange={(e) => setInput(e.target.value)}/>
+                    <input aria-label="quote" className="border border-inherit w-2/6 border-zinc-900 px-5 py-1 text-sm mr-2" value={input} onChange={(e) => setInput(e.target.value)}/>
                     <button className="bg-black px-5 py-1 text-white text-sm font-medium" onClick={() => onSubmit()}>save</button>
                 </div>
             }

@@ -4,7 +4,7 @@ import {
   } from "react-router-dom";
 import useCreateQuote from "../hooks/useCreateQuote";
 import useGetQuotes from "../hooks/useGetQuotes";
-import Quote from "./quote";
+import Quote from "../components/quote";
 
 export default function Quotes(props) {
 
@@ -37,7 +37,7 @@ export default function Quotes(props) {
         {
             !isFetched
             ? <p>loading</p>
-            : data.quotes.map(quote => <Quote q={quote.quote} quoteId={quote.id} bookId={data.id} bookTitle={data.bookTitle} />)
+            : data.quotes.map(quote => <Quote isbn={data.isbn} q={quote.quote} quoteId={quote.id} bookId={data.id} bookTitle={data.bookTitle} />)
         }
         </div>
     )
